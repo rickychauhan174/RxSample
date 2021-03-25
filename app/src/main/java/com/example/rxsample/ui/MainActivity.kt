@@ -15,6 +15,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         rxObservablesViewModel = ViewModelProvider(this).get(RxObservablesViewModel::class.java)
         rxOperatorsViewModel = ViewModelProvider(this).get(RxOperatorsViewModel::class.java)
+
+        //Call the specific methods for Observables and Operators
         observeWithTakeOperator()
     }
 
