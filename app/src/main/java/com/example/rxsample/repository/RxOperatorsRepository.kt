@@ -14,7 +14,7 @@ object RxOperatorsRepository {
         return Observable.just("Rx","Sample" ,"Normal")
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .map { m -> m + " map" }
+            .map { m -> "$m map" }
     }
 
     fun getObservableWithFlatMapOperator() : Observable<String>{
@@ -22,7 +22,7 @@ object RxOperatorsRepository {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .flatMap { m ->
-                Observable.just(m + " map")
+                Observable.just("$m map")
                     .subscribeOn(Schedulers.io())
 
             }

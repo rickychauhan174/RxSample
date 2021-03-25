@@ -13,12 +13,11 @@ object RxObservablesRepository {
     }
 
     fun getFlowableObservable() : Flowable<Int> {
-        return Flowable.create(object : FlowableOnSubscribe<Int>{
-            override fun subscribe(emitter: FlowableEmitter<Int>) {
-                for(i in 1..1000){
-                    emitter.onNext(i)
-                }
-            } }, BackpressureStrategy.DROP)
+        return Flowable.create({ emitter ->
+            for(i in 1..1000){
+                emitter.onNext(i)
+            }
+        }, BackpressureStrategy.DROP)
 
     }
 
